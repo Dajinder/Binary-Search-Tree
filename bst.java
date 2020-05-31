@@ -105,6 +105,51 @@ public class bst{
         return curr.data;
     }
 
+    public static int lcaofBst(Node node, int a, int b){
+        if(node==null) return -1;
+        if(a<node.data && b<node.data){
+            return lcaofBst(node.left, a, b);
+        }
+        else if(a>node.data && b>node.data){
+            return lcaofBst(node.right, a, b);
+        }
+        else{
+            return node.data;
+        }
+    }
+
+    public static Node adddata(Node node, int data){
+        if(node==null) return null;
+        if(node.left==null && node.right==null){
+            Node addnode = new Node(data,null,null);
+            return addnode;
+
+        }
+        if(data<node.data)
+            node.left = adddata(node.left, data);
+        else 
+            node.right = adddata(node.right, data);
+
+        return node;
+    }
+
+    // public static int predandsucc(Node node, int data){
+    //     Node curr = node;
+    //     Node pred = null;
+    //     Node succ = null;
+
+    //     while(curr!=null){
+    //         if(curr.data == data){
+
+    //         }
+    //         else{
+
+    //         }
+    //     }
+    // }
+
+    public static void
+
 
     public static void solve(){
         int[] arr = {10,20,30,40,50,60,70,80};
@@ -115,6 +160,9 @@ public class bst{
         // System.out.println(find(root, 80)); 
         // System.out.println(maximumEle(root));
         // System.out.println(minimumEle(root));
+        // System.out.println(lcaofBst(root, 10, 30));
+        adddata(root, 32);
+        display(root);
     }
 
     
